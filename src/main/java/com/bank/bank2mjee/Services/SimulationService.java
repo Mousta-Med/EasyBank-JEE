@@ -18,6 +18,10 @@ public class SimulationService {
     AgenceDao agenceDao;
     DemandeDeCreditDao demandeDeCreditDao;
 
+    public SimulationService(DemandeDeCreditDao demandeDeCreditDao) {
+        this.demandeDeCreditDao = demandeDeCreditDao;
+    }
+
     public double createSimulation(Double capitale, int nombremensualite) {
         double tauxMensuel = DemandeDeCredit.TAUX / 12;
         double result = (capitale * tauxMensuel * Math.pow(1 + tauxMensuel, nombremensualite))
@@ -38,6 +42,7 @@ public class SimulationService {
         this.agenceDao = agenceDao;
         this.demandeDeCreditDao = demandeDeCreditDao;
     }
+
     public SimulationService() {
     }
     public Optional<DemandeDeCredit> addDemande(DemandeDeCredit demandeDeCredit){
@@ -85,6 +90,9 @@ public class SimulationService {
         } else {
             return demandeDeCreditDao.findAll(filter);
         }
+    }
+    public List<DemandeDeCredit> findAll() {
+        return demandeDeCreditDao.findAll();
     }
 
     public Optional<DemandeDeCredit> updateEtat(String creditEtat, String creditNumber) {
