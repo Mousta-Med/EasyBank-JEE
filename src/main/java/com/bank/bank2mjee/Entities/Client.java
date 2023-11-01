@@ -30,4 +30,7 @@ public final class Client extends Person{
     public Client(String client) {
         this.code = client;
     }
+
+    public Client(String firstName, String lastName) {
+    }
 }
