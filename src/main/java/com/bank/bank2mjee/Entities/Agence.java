@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -20,6 +22,8 @@ public class Agence {
     private String adresse;
     @Column(name = "numero")
     private String numero;
+    @OneToMany
+    private List<DemandeDeCredit> demandeDeCreditList;
 
     public Agence(String code) {
         this.code = code;

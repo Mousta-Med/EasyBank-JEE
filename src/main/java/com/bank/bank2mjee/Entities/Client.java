@@ -19,6 +19,8 @@ public final class Client extends Person{
     private String code;
     @Column(name = "address")
     private String address;
+    @OneToMany
+    private List<DemandeDeCredit> demandeDeCreditList;
     public Client(String firstName, String lastName, LocalDate birthDate, String mobile, String code, String address) {
         super(firstName, lastName, birthDate, mobile);
         this.code = code;
